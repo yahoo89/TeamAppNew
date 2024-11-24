@@ -33,14 +33,12 @@ internal partial class Program
     {
         for (int i = members.Count; i < membersCount; i++)
         {
-            Member newMember = GetMemberInfo(i);
-            members.Add(newMember);
+            members.Add(GetMemberInfo(i));
         }
     }
     static void AddMember(List<Member> members)
     {
-        Member newMember = GetMemberInfo(members.Count);
-        members.Add(newMember);
+        members.Add(GetMemberInfo(members.Count));
     }
     static void ShowMembers(List<Member> members)
     {

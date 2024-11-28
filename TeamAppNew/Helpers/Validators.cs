@@ -1,44 +1,42 @@
-﻿namespace TeamAppNew;
+﻿using TeamAppNew.Enums;
 
-internal partial class Program
+namespace TeamAppNew.Helpers;
+
+public class Validator : IValidator
 {
-    public static bool isValidContractType(string message)
+    public ContractType ValidateContractType(string message)
     {
-        bool isFulltime = false;
         bool isValidAnswer = false;
 
         while (!isValidAnswer)
         {
             Console.Write(message);
             var contractType = Console.ReadLine()?.Trim().ToLower();
+            isValidAnswer = true;
 
             switch (contractType)
             {
                 case "yes":
-                    isFulltime = true;
-                    isValidAnswer = true;
-                    break;
+                    return ContractType.FullTime;
                 case "no":
-                    isFulltime = false;
-                    isValidAnswer = true;
-                    break;
+                    return ContractType.PartTime;
                 default:
+                    isValidAnswer = false;
                     Console.WriteLine("Invalid input. Please enter a valid answer ('YES' or 'NO').");
                     break;
             }
         }
 
-        return isFulltime;
+        return ContractType.FullTime; // default option
     }
-    public static int isValidInt(string message)
-    {
-        int value;
 
+    public int IsValidTeamSize(string message)
+    {
         while (true)
         {
             Console.Write(message);
 
-            if (int.TryParse(Console.ReadLine(), out value) && value > 0)
+            if (int.TryParse(Console.ReadLine(), out int value) && value > 0)
             {
                 return value;
             }
@@ -46,15 +44,13 @@ internal partial class Program
             Console.WriteLine($"Invalid input. Please enter a valid number from 1 to infinity.");
         }
     }
-    public static int isValidInt(string message, int max)
+    public int IsValidAge(string message, int max = 100)
     {
-        int value;
-
         while (true)
         {
             Console.Write(message);
 
-            if (int.TryParse(Console.ReadLine(), out value) && value > 0 && value <= max)
+            if (int.TryParse(Console.ReadLine(), out int value) && value > 0 && value <= max)
             {
                 return value;
             }
@@ -63,15 +59,14 @@ internal partial class Program
         }
     }
 
-
-    static string isValidString(string message)
+    public string IsValidString(string message)
     {
         while (true)
         {
             Console.Write(message);
             var input = Console.ReadLine();
 
-            if (!string.IsNullOrWhiteSpace(input) && !int.TryParse(input, out _) && IsValidCharacters(input))
+            if (!string.IsNullOrWhiteSpace(input) && IsValidCharacters(input))
             {
                 return input;
             }
@@ -80,9 +75,8 @@ internal partial class Program
         }
     }
 
-    static bool IsValidCharacters(string input)
+    public bool IsValidCharacters(string input)
     {
-
         foreach (char c in input)
         {
             if (!char.IsLetter(c) && !char.IsWhiteSpace(c))

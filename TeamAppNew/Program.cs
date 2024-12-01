@@ -1,4 +1,6 @@
-﻿namespace TeamAppNew;
+﻿using TeamAppNew.Enums;
+
+namespace TeamAppNew;
 
 internal partial class Program
 {

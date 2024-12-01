@@ -48,7 +48,7 @@ internal partial class Program
             return;
         }
 
-        Console.WriteLine("\nMembers List:");
+        Console.WriteLine("\nMembers List:\n");
 
         foreach (var member in members)
         {

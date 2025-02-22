@@ -20,65 +20,6 @@ internal class Program
     static void Main(string[] args)
     {
 
-        //var selectedLanguages = new List<ProgramingLanguages> { Enum.Parse<ProgramingLanguages>("CSS, JavaScript") };
-
-        //testMembers.Add(new Member("Tiko", 35, selectedLanguages, ContractType.FullTime));
-        //testMembers.Add(new Member("Kiso", 25, selectedLanguages, ContractType.FullTime));
-        //testMembers.Add(new Member("Mika", 88, new List<ProgramingLanguages> { ProgramingLanguages.HTML, ProgramingLanguages.CSS }, ContractType.FullTime));
-        //testMembers.Add(new Member("Babken", 21, new List<ProgramingLanguages> { ProgramingLanguages.CSharp }, ContractType.FullTime));
-
-        var testMembers = MemberService.LoadMembers();
-
-        foreach (var member in testMembers)
-        {
-            Console.WriteLine($"Loaded: {member.Name}  {member.Age} ");
-        }
-
-        Console.WriteLine();
-        //EditCurrentMembers(testMembers);
-        Console.WriteLine();
-        //foreach (var member in testMembers)
-        //{
-        //    Console.WriteLine($"{member.Name}  {member.Age} {member.ContractType}");
-        //}
-
-        void EditCurrentMembers(List<Member> members)
-        {
-            Console.WriteLine(" I am updating members");
-        }
-
-
-        //void RemoveMember(List<Member> members)
-        //{
-        //    var selectedUsers = AnsiConsole.Prompt(
-        //        new MultiSelectionPrompt<string>()
-        //            .Title($"[green]Please select whom you want to remove :[/]")
-        //            .PageSize(10)
-        //            .MoreChoicesText("[grey](Move up and down to reveal more members)[/]")
-        //            .InstructionsText(
-        //                "[grey](Press [blue]<space>[/] to toggle a fruit, " +
-        //                "[green]<enter>[/] to accept)[/]")
-        //            .AddChoices(members.Select(m => $"{m.Name}, {m.Age} years, {m.ContractType}").ToList()));
-
-        //    var removedMembers = members.Where(m => selectedUsers.Contains($"{m.Name}, {m.Age} years, {m.ContractType}")).ToList();
-
-        //    members.RemoveAll(m => selectedUsers.Contains($"{m.Name}, {m.Age} years, {m.ContractType}"));
-
-        //    if (removedMembers.Count > 0)
-        //    {
-        //        AnsiConsole.MarkupLine("\n[red]Removed Members:[/]");
-        //        foreach (var member in removedMembers)
-        //        {
-        //            AnsiConsole.MarkupLine($"[red]- {member.Name}, {member.Age} years, {member.ContractType}[/]");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        AnsiConsole.MarkupLine("\n[bold green]No members were removed.[/]");
-        //    }
-        //}
-
-
         IValidator validator = new Validator();
 
         DoMainWork(validator);

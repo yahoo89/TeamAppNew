@@ -6,21 +6,23 @@ public class Member
 {
     public string Name { get; set; }
     public int Age { get; set; }
-    public string ProgramingLanguage { get; set; }
+    public List<ProgramingLanguages> ProgramingLanguages { get; set; }
     public ContractType ContractType { get; set; }
 
-    public Member(string name, int age, string programingLanguage, ContractType contract)
+    public Member(string name, int age, List<ProgramingLanguages> programingLanguages, ContractType contract)
     {
         Name = name;
         Age = age;
-        ProgramingLanguage = programingLanguage;
+        ProgramingLanguages = programingLanguages;
         ContractType = contract;
     }
 
-    public string GetMemberDetails()
-    {
-        return $"Member {Name} is {Age} " +
-            $"years old, knows {ProgramingLanguage}" +
-            $" and works {ContractType}";
-    }
+    //public string GetMemberDetails()
+    //{
+    //    var languages = string.Join(", ", ProgramingLanguages);
+
+    //    return $"Member {Name} is {Age} " +
+    //        $"years old, knows {languages}" +
+    //        $" and works {ContractType}";
+    //}
 }

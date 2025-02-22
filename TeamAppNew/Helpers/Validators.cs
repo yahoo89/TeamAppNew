@@ -1,4 +1,5 @@
 using TeamAppNew.Enums;
+using Spectre.Console;
 
 namespace TeamAppNew.Helpers;
 
@@ -10,7 +11,8 @@ public class Validator : IValidator
 
         while (!isValidAnswer)
         {
-            Console.Write(message);
+            AnsiConsole.Markup($"[lime]{message}[/]");
+
             var contractType = Console.ReadLine()?.Trim().ToLower();
             isValidAnswer = true;
 
@@ -22,7 +24,7 @@ public class Validator : IValidator
                     return ContractType.PartTime;
                 default:
                     isValidAnswer = false;
-                    Console.WriteLine("Invalid input. Please enter a valid answer ('YES' or 'NO').");
+                    AnsiConsole.MarkupLine("[bold red]Invalid input. Please enter a valid answer ('YES' or 'NO').[/]");
                     break;
             }
         }
@@ -34,28 +36,30 @@ public class Validator : IValidator
     {
         while (true)
         {
-            Console.Write(message);
+            AnsiConsole.Markup($"[lime]{message}[/]");
 
             if (int.TryParse(Console.ReadLine(), out int value) && value > 0)
             {
                 return value;
             }
 
-            Console.WriteLine($"Invalid input. Please enter a valid number from 1 to infinity.");
+            AnsiConsole.MarkupLine("[bold red]Invalid input. Please enter a valid number from 1 to infinity.[/]");
+
         }
     }
     public int IsValidAge(string message, int max = 100)
     {
         while (true)
         {
-            Console.Write(message);
+            AnsiConsole.Markup($"[lime]{message}[/]");
 
             if (int.TryParse(Console.ReadLine(), out int value) && value > 0 && value <= max)
             {
                 return value;
             }
+            
+            AnsiConsole.MarkupLine($"[bold red]Invalid input. Please enter a valid number between 1 and {max}.[/]");
 
-            Console.WriteLine($"Invalid input. Please enter a valid number between 1 and {max}.");
         }
     }
 
@@ -63,7 +67,9 @@ public class Validator : IValidator
     {
         while (true)
         {
-            Console.Write(message);
+
+            AnsiConsole.Markup($"[lime]{message}[/]");
+
             var input = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(input) && IsValidCharacters(input))
@@ -71,7 +77,8 @@ public class Validator : IValidator
                 return input;
             }
 
-            Console.WriteLine("Invalid string. Please try again.");
+            AnsiConsole.MarkupLine("[bold red]Invalid string. Please try again.[/]");
+
         }
     }
 

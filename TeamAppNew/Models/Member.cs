@@ -9,6 +9,7 @@ public class Member
     public List<ProgramingLanguages> ProgramingLanguages { get; set; }
     public ContractType ContractType { get; set; }
 
+    
     public Member(string name, int age, List<ProgramingLanguages> programingLanguages, ContractType contract)
     {
         Name = name;

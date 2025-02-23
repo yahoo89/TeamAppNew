@@ -19,7 +19,7 @@ internal class Program
 
     static void Main(string[] args)
     {
-
+        
         IValidator validator = new Validator();
 
         DoMainWork(validator);
@@ -204,10 +204,11 @@ public class MemberService
     public static List<Member> LoadMembers()
     {
         
-        if (!File.Exists(FilePath)) return new List<Member>(); 
+        if (!File.Exists(FilePath)) return new List<Member>();
 
         var json = File.ReadAllText(FilePath);
+        var members = JsonSerializer.Deserialize<List<Member>>(json);
 
-        return JsonSerializer.Deserialize<List<Member>>(json) ?? new List<Member>();
+        return members ?? new List<Member>();
     }
 }

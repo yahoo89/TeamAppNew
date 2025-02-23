@@ -1,24 +1,24 @@
 [
   {
-    "Name": "Tiko",
+    "Name": "Ivan",
     "Age": 35,
     "ProgramingLanguages": [ "CSS" ],
     "ContractType": "FullTime"
   },
   {
-    "Name": "Mika",
+    "Name": "Antony",
     "Age": 88,
     "ProgramingLanguages": [ "HTML" ],
     "ContractType": "PartTime"
   },
   {
-    "Name": "Kiso",
+    "Name": "Stive",
     "Age": 35,
     "ProgramingLanguages": [ "CSS" ],
     "ContractType": "FullTime"
   },
   {
-    "Name": "Vazgen",
+    "Name": "John",
     "Age": 11,
     "ProgramingLanguages": [ "HTML" ],
     "ContractType": "PartTime"
